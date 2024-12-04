@@ -1,0 +1,38 @@
+Nov 30, 2024 2:55:15 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+INFO: Event Ticketing Application started.
+Nov 30, 2024 2:55:19 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+WARNING: Invalid input for configuration choice: 123
+Nov 30, 2024 2:55:24 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+WARNING: Invalid input for configuration choice: abx
+Nov 30, 2024 2:55:36 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication displayConfiguration
+INFO: Displayed current configuration.
+Nov 30, 2024 2:55:36 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+INFO: Configuration loaded successfully.
+Nov 30, 2024 2:55:36 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication initializeVendors
+INFO: Initializing vendors.
+Nov 30, 2024 2:55:36 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication initializeVendors
+INFO: Vendors initialized.
+Nov 30, 2024 2:55:36 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication initializeCustomers
+INFO: Initializing customers.
+Nov 30, 2024 2:55:36 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication initializeCustomers
+INFO: Customers initialized.
+Nov 30, 2024 2:59:06 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+INFO: Event Ticketing Application started.
+Nov 30, 2024 2:59:10 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+WARNING: Invalid input for configuration choice: 234
+Nov 30, 2024 2:59:14 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication displayConfiguration
+INFO: Displayed current configuration.
+Nov 30, 2024 2:59:14 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+INFO: Configuration loaded successfully.
+Dec 03, 2024 3:45:27 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+INFO: Event Ticketing Application started.
+Dec 03, 2024 3:45:35 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication displayConfiguration
+INFO: Displayed current configuration.
+Dec 03, 2024 3:45:35 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+INFO: Configuration loaded successfully.
+Dec 04, 2024 1:35:37 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+INFO: Event Ticketing Application started.
+Dec 04, 2024 1:35:42 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication displayConfiguration
+INFO: Displayed current configuration.
+Dec 04, 2024 1:35:42 PM com.sashenka.OOP.CW.Event_Ticketing.EventTicketingApplication main
+INFO: Configuration loaded successfully.
