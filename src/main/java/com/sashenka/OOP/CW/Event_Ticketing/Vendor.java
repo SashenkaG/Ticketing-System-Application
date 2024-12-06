@@ -1,11 +1,10 @@
 package com.sashenka.OOP.CW.Event_Ticketing;
 
-import java.math.BigDecimal;
-
-public class Vendor implements Runnable{
-    private int totalTickets; // Tickets willing to sell
-    private int ticketReleaseRate; // Frequency of releasing
-    private TicketPool ticketPool; // Shared resource between Vendors and Customers
+public class Vendor implements Runnable {
+    private final int totalTickets;
+    private final int ticketReleaseRate;
+    private final TicketPool ticketPool;
+    private boolean hasReachedMaxCapacity = false; // Flag to track if max capacity has been reached
 
     public Vendor(int totalTickets, int ticketReleaseRate, TicketPool ticketPool) {
         this.totalTickets = totalTickets;
@@ -15,13 +14,34 @@ public class Vendor implements Runnable{
 
     @Override
     public void run() {
-        for (int i = 1; i < totalTickets; i++) {
-            Ticket ticket = new Ticket(i,"Simple Event", new BigDecimal("1000"));
-            ticketPool.addTicket(ticket);
+        int ticketsAdded = 0;
+
+        while (ticketsAdded < totalTickets) {
+            synchronized (ticketPool) {
+                // Only add tickets if max capacity hasn't been reached yet
+                if (!hasReachedMaxCapacity) {
+                    int availableCapacity = ticketPool.getMaxTicketCapacity() - ticketPool.getCurrentTicketCount();
+                    if (availableCapacity > 0) {
+                        int ticketsToAdd = Math.min(ticketReleaseRate, totalTickets - ticketsAdded);
+                        ticketsToAdd = Math.min(ticketsToAdd, availableCapacity);
+                        ticketPool.addTickets(ticketsToAdd);
+                        ticketsAdded += ticketsToAdd;
+                        System.out.println(Thread.currentThread().getName() + " added " + ticketsToAdd + " tickets. Tickets available: " + ticketPool.getCurrentTicketCount());
+                    }
+
+                    // After adding tickets, check if max capacity is reached
+                    if (ticketPool.getCurrentTicketCount() == ticketPool.getMaxTicketCapacity()) {
+                        hasReachedMaxCapacity = true;
+                        System.out.println("Ticket pool has reached maximum capacity. Vendors will stop adding tickets.");
+                    }
+                }
+            }
+
             try {
-                Thread.sleep(ticketReleaseRate * 1000); // To calculate to MS
+                Thread.sleep(1000); // Simulating ticket release interval
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt();
+                break;
             }
         }
     }
