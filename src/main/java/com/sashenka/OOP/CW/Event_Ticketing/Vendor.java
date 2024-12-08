@@ -32,7 +32,7 @@ public class Vendor implements Runnable {
                     // After adding tickets, check if max capacity is reached
                     if (ticketPool.getCurrentTicketCount() == ticketPool.getMaxTicketCapacity()) {
                         hasReachedMaxCapacity = true;
-                        System.out.println("Ticket pool has reached maximum capacity. Vendors will stop adding tickets.");
+                        System.out.println("Ticket pool has reached maximum capacity.");
                     }
                 }
             }
