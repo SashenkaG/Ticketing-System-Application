@@ -64,12 +64,23 @@ public class EventTicketingApplication {
 
 	private static void promptForConfiguration(Configuration config, Scanner scanner) {
 		System.out.println("Let's set up your configuration:");
-		config.setTotalTickets(promptForValidInt(scanner, "Enter total number of tickets: "));
+		config.setMaxTicketCapacity(promptForValidInt(scanner, "Enter maximum ticket capacity: "));
+
+		int totalTickets;
+		do {
+			totalTickets = promptForValidInt(scanner, "Enter total number of tickets (must be <= max ticket capacity): ");
+			if (totalTickets > config.getMaxTicketCapacity()) {
+				System.out.println("Error: Total tickets cannot exceed the maximum ticket capacity. Please try again.");
+				logger.warning("Invalid input: Total tickets (" + totalTickets + ") exceeds max capacity (" + config.getMaxTicketCapacity() + ").");
+			}
+		} while (totalTickets > config.getMaxTicketCapacity());
+		config.setTotalTickets(totalTickets);
+
 		config.setTicketReleaseRate(promptForValidInt(scanner, "Enter ticket release rate: "));
 		config.setCustomerRetrievalRate(promptForValidInt(scanner, "Enter customer retrieval rate: "));
-		config.setMaxTicketCapacity(promptForValidInt(scanner, "Enter maximum ticket capacity: "));
 		logger.info("Configuration setup complete.");
 	}
+
 
 	private static int promptForValidInt(Scanner scanner, String prompt) {
 		while (true) {
